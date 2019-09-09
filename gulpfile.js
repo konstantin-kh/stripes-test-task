@@ -267,7 +267,7 @@ gulp.task('inject:dist', gulp.series('copy:dist'), () => {
 
 const delFiles = [
   `${paths.tmp}`,
-  `${paths.dist}`,
+  // `${paths.dist}`,
 ]
 
 gulp.task('clean', () => {
