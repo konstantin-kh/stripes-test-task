@@ -1,7 +1,7 @@
 //
 //Variable for button
 //
-// The yiq lightness value that determines when the lightness of color changes from "dark" to "light". Acceptable values are between 0 and 255.
+// The yiq lightness value that determines when the lightness of color changes from 'dark' to 'light'. Acceptable values are between 0 and 255.
 $yiq-contrasted-threshold: 150 !default;
 // Customize the light and dark text colors for use in our YIQ color contrast function.
 $yiq-text-dark: #000 !default;
@@ -14,18 +14,16 @@ $button-hover-darken-persent: 15% !default;
 //
 
 @function color-yiq($color) {
-	$r: red($color);
-	$g: green($color);
-	$b: blue($color);
-	$yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
+  $r: red($color);
+  $g: green($color);
+  $b: blue($color);
+  $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
 
-	@if ($yiq >=$yiq-contrasted-threshold) {
-		@return $yiq-text-dark;
-	}
-
-	@else {
-		@return $yiq-text-light;
-	}
+  @if ($yiq >= $yiq-contrasted-threshold) {
+    @return $yiq-text-dark;
+  }  @else {
+    @return $yiq-text-light;
+  }
 }
 
 //
@@ -33,52 +31,56 @@ $button-hover-darken-persent: 15% !default;
 //
 
 @mixin button-variant (
-	$background: $fon-brand,
-	$color: color-yiq($background),
-	$border: $background,
-	$hover-background: darken($background, $button-hover-darken-persent),
-	$hover-color: color-yiq($hover-background),
-	$hover-border: darken($border, $button-hover-darken-persent)) {
-	color: $color;
-	background-color: $background;
-	border-color: $border;
+  $background: $fon-brand,
+  $color: color-yiq($background),
+  $border: $background,
+  $hover-background: darken($background, $button-hover-darken-persent),
+  $hover-color: color-yiq($hover-background),
+  $hover-border: darken($border, $button-hover-darken-persent)) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
 
-	&:hover {
-		color: $hover-color;
-		background-color: $hover-background;
-		border-color: $hover-border;
-	}
+  &:hover {
+    color: $hover-color;
+    background-color: $hover-background;
+    border-color: $hover-border;
+  }
 }
 
 @mixin button-outline-variant(
-	$color: $color-brand,
-	$color-hover: color-yiq($color),
-	$hover-background: $color,
-	$color-border: $color,
-	$hover-border: $color-hover) {
-	color: $color;
-	background-color: transparent;
-	border-color: $color-border;
+  $color: $color-brand,
+  $color-hover: color-yiq($color),
+  $hover-background: $color,
+  $color-border: $color,
+  $hover-border: $color-hover) {
+  color: $color;
+  background-color: transparent;
+  border-color: $color-border;
 
-	&:hover {
-		color: $color-hover;
-		background-color: $hover-background;
-		border-color: $hover-border;
-	}
+  &:hover {
+    color: $color-hover;
+    background-color: $hover-background;
+    border-color: $hover-border;
+  }
 }
 
 //
 // Button sizes mixin
 //
 
-@mixin button-size($padding-y:$btn-padding-y, $padding-x:$btn-padding-x, $font-size:$btn-font-size, $font-weight:$btn-font-weight, $border-radius:$btn-radius, $border-width:$btn-border-width, $line-height:$btn-line-height, $letter-spacing:$btn-letter-spacing) {
-	padding: $padding-y $padding-x;
-	font-size: $font-size;
-	font-weight: $font-weight;
-	border-radius: $border-radius;
-	border-width: $border-width;
-	line-height: $line-height;
-	letter-spacing: $letter-spacing;
+@mixin button-size($padding-y: $btn-padding-y, $padding-x: $btn-padding-x, $font-size: $btn-font-size, $font-weight: $btn-font-weight, $border-radius: $btn-radius, $border-width: $btn-border-width, $line-height: $btn-line-height, $letter-spacing: $btn-letter-spacing) {
+  padding: $padding-y $padding-x;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  border-radius: $border-radius;
+  border-width: $border-width;
+  line-height: $line-height;
+  letter-spacing: $letter-spacing;
+
+  @include media('<tablet') {
+    font-size: .88rem;
+  }
 }
 
 //
@@ -90,32 +92,45 @@ $button-hover-darken-persent: 15% !default;
 //
 
 .btn {
-	display: inline-block;
-	text-align: center;
-	white-space: nowrap;
-	vertical-align: middle;
-	border-style: solid;
-	transition: $btn-transition;
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  border-style: solid;
+  transition: $btn-transition;
 
-	//variable located markup-template/scss/base/variables.scss
-	//size button mixin
-	// $btn-padding-y | $btn-padding-x | $btn-font-size | $btn-radius | $btn-border-width | $btn-line-height
-	// ($padding-y:10px, $padding-x:15px, $font-size:16px, $font-weight:normal, $border-radius:0, $border-width:1px, $btn-line-height:1.2)
-	@include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-font-weight, $btn-radius, $btn-border-width, $btn-line-height, $btn-letter-spacing);
-	//color button mixin $background | $color | $border | $hover-background | $hover-color | $hover-border
+  //variable located markup-template/scss/base/variables.scss
+  //size button mixin
+  // $btn-padding-y | $btn-padding-x | $btn-font-size | $btn-radius | $btn-border-width | $btn-line-height
+  // ($padding-y:10px, $padding-x:15px, $font-size:16px, $font-weight:normal, $border-radius:0, $border-width:1px, $btn-line-height:1.2)
+  @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-font-weight, $btn-radius, $btn-border-width, $btn-line-height, $btn-letter-spacing);
+  //color button mixin $background | $color | $border | $hover-background | $hover-color | $hover-border
 
-	&:hover {
-		text-decoration: none;
-	}
+  &:hover {
+    text-decoration: none;
+  }
 
-	&:focus {
-		outline: 0;
-	}
+  &:focus {
+    outline: 0;
+  }
 }
 
 .btn--outline {
-	//color outline-button mixin $color | $color-hover | $hover-background | $color-border | $hover-border
-	@include button-outline-variant($btn-bg-color);
+  //color outline-button mixin $color | $color-hover | $hover-background | $color-border | $hover-border
+  @include button-outline-variant($btn-bg-color);
+}
+
+.btn--default {
+  @include button-variant($btn-bg-color, $white);
+  position: relative;
+  &::after {
+    content: '»';
+    position: absolute;
+    top: 50%;
+    right: .06em;
+    transform: translateY(-50%);
+    margin-top: -.06em;
+  }
 }
 
 //
@@ -123,11 +138,13 @@ $button-hover-darken-persent: 15% !default;
 //
 
 .btn--lg {
-	@include button-size(15px, 25px, 20px, 8px, 3px, 1.2);
+  @include button-size(15px, 25px, 20px, 8px, 3px, 1.2);
 }
 
 .btn--sm {
-	@include button-size(3px, 10px, 20px, 3px, 2px, 1.2);
+  @include button-size(0, rem(2px), 1rem, $btn-font-weight, $btn-radius, $btn-border-width, 1, $btn-letter-spacing);
+  padding-right: rem(13px);
+  padding-bottom: rem(1px);
 }
 
 //
@@ -135,17 +152,17 @@ $button-hover-darken-persent: 15% !default;
 //
 
 .btn-link {
-	color: $color-brand;
-	background-color: transparent;
-	border-color: transparent;
-	transition: $btn-transition;
-	font-weight: 700;
-	&:hover {
-		text-decoration: underline;
-		color: $color-brand;
-		background-color: transparent;
-		border-color: transparent;
-	}
+  color: $color-brand;
+  background-color: transparent;
+  border-color: transparent;
+  transition: $btn-transition;
+  font-weight: 700;
+  &:hover {
+    text-decoration: underline;
+    color: $color-brand;
+    background-color: transparent;
+    border-color: transparent;
+  }
 }
 
 //
@@ -153,20 +170,11 @@ $button-hover-darken-persent: 15% !default;
 //
 
 .btn-block {
-	display: block;
-	width: 100%;
+  display: block;
+  width: 100%;
 
-	// Vertically space out multiple block buttons
-	+ .btn-block {
-		margin-top: 15px;
-	}
-}
-
-// Specificity overrides
-input[type="submit"],
-input[type="reset"],
-input[type="button"] {
-	&.btn-block {
-		width: 100%;
-	}
+  // Vertically space out multiple block buttons
+  + .btn-block {
+    margin-top: 15px;
+  }
 }

@@ -1,0 +1,160 @@
+.header {
+  @include media('>=tablet') {
+    background: $white url('../img/header-bg-pattern.png');
+  }
+
+  &_wrap {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: rem(18px) 0;
+
+    @include media('<desktop') {
+      flex-direction: column;
+      padding: rem(22px) 0 rem(15px);
+    }
+
+    @include media('<tablet') {
+      display: block;
+      padding: 0;
+    }
+  }
+
+  &_logo-wrap {
+    @include media('<tablet') {
+      padding: 7px 9999px 2px;
+      margin: 0 -9999px;
+      background: $white;
+    }
+  }
+
+  &_logo {
+    flex: 0 0 129px;
+    min-width: 129px;
+    margin-right: rem(15px);
+
+    @include media('<desktop') {
+      flex-basis: auto;
+      margin: 0 0 1px;
+    }
+
+    @include media('<tablet') {
+      min-width: 95px;
+      max-width: 95px;
+      margin: 0;
+    }
+  }
+}
+
+.nav {
+  $this: &;
+  flex-grow: 1;
+  line-height: 1.2;
+  font-family: $base-font-serif;
+  text-transform: uppercase;
+
+  @include media('<tablet') {
+    width: 100%;
+    padding: 22px 0;
+  }
+
+  &_list {
+    @extend %listreset;
+
+    @include media('>=tablet') {
+      display: flex;
+      justify-content: flex-end;
+      margin: 0 rem(-14px);
+    }
+  }
+
+  &_item {
+    position: relative;
+
+    @include media('>=tablet') {
+      padding: 0 rem(14px);
+    }
+
+    &::after {
+      @include media('>=tablet') {
+        content: '/';
+        position: absolute;
+        top: 50%;
+        left: -.25em;
+        transform: translateY(-50%);
+        margin-top: -.06em;
+      }
+    }
+
+    &:first-child {
+      &::after {
+        display: none;
+      }
+    }
+
+    &--active {
+      #{$this}_link {
+        color: $green-400;
+
+        @include media('<tablet') {
+          border-color: $green-400;
+        }
+
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &_link {
+    display: block;
+    padding: .44em 0;
+    position: relative;
+    color: $color-brand;
+
+    @include media('<tablet') {
+      border-bottom: 3px solid $color-brand;
+      padding: 5px 0 7px;
+    }
+
+    &::after {
+      @include media('>=tablet') {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 5px 7px 0 7px;
+        border-color: $green-400 transparent transparent transparent;
+        opacity: 0;
+        transition: opacity $transition-duration $transition-name;
+      }
+
+      @include media('<tablet') {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: $white;
+      }
+    }
+
+    &:hover {
+      color: $green-400;
+
+      @include media('<tablet') {
+        border-color: $green-400;
+      }
+
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+}

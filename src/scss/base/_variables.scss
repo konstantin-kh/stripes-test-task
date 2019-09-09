@@ -1,23 +1,23 @@
 $breakpoints: (
-	'fullscreen': 1920px,
-	'widescreen': 1680px,
-	'laptop': 1440px,
-	'desktop': 1024px,
-	'tablet': 768px,
-	'phone': 667px,
-	'xs-phone': 375px,
+  'fullscreen': 1920px,
+  'widescreen': 1680px,
+  'laptop': 1440px,
+  'desktop': 940px,
+  'tablet': 720px,
+  'phone': 667px,
+  'xs-phone': 375px,
 );
 // ligatured operators ≥ ≤
 
 // keywords
 $media-expressions: (
-	'screen': 'screen',
-	'print': 'print',
-	'handheld': 'handheld',
-	'landscape': '(orientation: landscape)',
-	'portrait': '(orientation: portrait)',
-	'retina2x': '(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)',
-	'retina3x': '(-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi)'
+  'screen': 'screen',
+  'print': 'print',
+  'handheld': 'handheld',
+  'landscape': '(orientation: landscape)',
+  'portrait': '(orientation: portrait)',
+  'retina2x': '(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)',
+  'retina3x': '(-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi)'
 );
 
 // Colors basic
@@ -27,85 +27,76 @@ $media-expressions: (
 $black:      #000;
 $white:      #fff;
 
-$gray-100:   #ebebeb;
-$gray-400:   #999;
+$gray-100:   #fcfcfc;
+$gray-200:   #f7f7f7;
+$gray-300:   #ccc;
+$gray-400:   #333;
 $gray-500:   #7b7b7b;
-$gray-600:   #666;
+$gray-600:   #808080;
 $gray-900:   #222;
 
-$blue-100:   #f7faff;
-$blue-200:   #edf1fa;
-$blue-400:   #0576f5;
-$blue-600:   #00418a;
-
-$orange-400: #f7941d;
-
-$green-400:  #1ab56b;
-$green-900:  #1d292b;
-
-$teal-400:   #2dc0bb;
+$green-400:  #53a665;
+$green-500:  #5a9e61;
 
 // Colors theme
-$color-brand:          $green-400;
-$color-brand-dark:     $green-900;
-$color-brand-light:    $green-400;
+$color-brand:          $gray-400;
+$color-brand-dark:     $gray-900;
+$color-brand-light:    $gray-100;
 
 // Fonts
-// $font-folder-root: "../fonts/";
-$font-nunito: 'Nunito Sans', sans-serif;
-$base-font-sans-serif: $font-nunito;
-$base-font-serif: 'Times New Roman', 'Times', 'Baskerville', 'Georgia', serif;
+$font-open-sans: 'Open Sans', sans-serif;
+$font-bree-serif: 'Bree Serif', 'Times New Roman', 'Times', 'Baskerville', 'Georgia', serif;
+$base-font-sans-serif: $font-open-sans;
+$base-font-serif: $font-bree-serif;
 $base-main-font: $base-font-sans-serif;
-// @include ff-mixin($font-veneer, $font-folder-root+$font-veneer, 400, normal);
 
 // This is the default html and body font-size for the base rem value.
 $rem-base: 16px;
 
 // Body
-$base-text-color: $green-900;
-$font-size-base: 1.13rem;
-$line-height-base: 1.67;
+$base-text-color: $gray-400;
+$font-size-base: 1rem;
+$line-height-base: 1.5em;
 $base-font-family: $base-font-sans-serif;
 $vertical-rhythm: ($line-height-base * 1em);
 
-$background-primary: $blue-100;
-$base-border-radius: 0.2rem;
+$base-border-radius: 0;
 
 // Headers
-$h1-font-size: 46px;
-$h2-font-size: 44px;
-$h3-font-size: 32px;
-$h4-font-size: 24px;
-$h5-font-size: 22px;
+$h1-font-size: 28px;
+$h2-font-size: 24px;
+$h3-font-size: 20px;
+$h4-font-size: 18px;
+$h5-font-size: 19px;
 $h6-font-size: $rem-base;
 
-$heading-font-family: $base-main-font;
-$heading-font-weight: 700;
-$heading-line-height: 1.35;
+$heading-font-family: $base-font-serif;
+$heading-font-weight: 400;
+$heading-line-height: 1.17;
 
 // Container
-$container-width: 1120px;
+$container-width: 940px;
 $container-pading-left: 20px;
 $container-pading-right: $container-pading-left;
 $container-width-full: $container-width + $container-pading-left + $container-pading-right;
 
 // Buttons + Forms
 $border-width:        1px !default;
-$input-btn-padding-y: 0.875rem;
+$input-btn-padding-y: .875rem;
 $input-btn-padding-x: .75rem !default;
 
 // Buttons
-$btn-min-width: 170px;
+$btn-min-width: 3.75rem;
 $btn-padding-y: $input-btn-padding-y;
 $btn-padding-x: $input-btn-padding-x;
-$btn-font-size: 1.19rem;
-$btn-font-weight: 700;
+$btn-font-size: 1rem;
+$btn-font-weight: 400;
 $btn-font-family: $base-font-sans-serif;
 $btn-radius: $base-border-radius;
 $btn-border-width: $border-width;
 $btn-line-height: 1.2;
 $btn-letter-spacing: 0;
-$btn-bg-color: $orange-400;
+$btn-bg-color: $green-400;
 $btn-bg-none: none;
 
 // Forms
@@ -116,10 +107,10 @@ $input-padding-x:         1.8rem;
 $input-line-height:       $btn-line-height !default;
 $input-height:            calc(#{$input-line-height * 1rem} + #{$input-padding-y * 2} + #{$input-height-border}) !default;
 $input-color:             $gray-900;
-$input-border-color:      $blue-600;
+$input-border-color:      $color-brand;
 $input-placeholder-color: $gray-900;
 $input-font-weight:       700;
-$form-element-focus-border-color: $blue-400;
+$form-element-focus-border-color: $color-brand-dark;
 
 // Transition
 $transition-duration: .25s;
