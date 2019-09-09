@@ -82,8 +82,8 @@ $container-width-full: $container-width + $container-pading-left + $container-pa
 
 // Buttons + Forms
 $border-width:        1px !default;
-$input-btn-padding-y: .875rem;
-$input-btn-padding-x: .75rem !default;
+$input-btn-padding-y: .3rem !default;
+$input-btn-padding-x: .5rem !default;
 
 // Buttons
 $btn-min-width: 3.75rem;
@@ -109,7 +109,7 @@ $input-height:            calc(#{$input-line-height * 1rem} + #{$input-padding-y
 $input-color:             $gray-900;
 $input-border-color:      $color-brand;
 $input-placeholder-color: $gray-900;
-$input-font-weight:       700;
+$input-font-weight:       400;
 $form-element-focus-border-color: $color-brand-dark;
 
 // Transition

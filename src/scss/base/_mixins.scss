@@ -324,16 +324,16 @@
   }
   @else if ($size <= 17){
     font-size: $size;
-    @include media("<=tablet") {
+    @include media("<tablet") {
       font-size: ($size - 1px);
     }
   }
   @else if ($size <= 20) {
     font-size: $size;
-    @include media("<=tablet") {
+    @include media("<tablet") {
       font-size: ($size - 2px);
     }
-    @include media("<=xs-phone") {
+    @include media("<phone") {
       font-size: ($size - 3px);
     }
   }
@@ -357,10 +357,10 @@
   }
   @else if ($sizeLh <= 24){
     line-height: $sizeLh;
-    @include media("<=tablet") {
+    @include media("<tablet") {
       line-height: ($sizeLh - 4px);
     }
-    @include media("<=xs-phone") {
+    @include media("<phone") {
       line-height: ($sizeLh - 6px);
     }
   }

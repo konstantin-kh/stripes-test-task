@@ -87,6 +87,7 @@ const styleFiles = [
   `!${paths.srcPathSCSS}/vendors/**/*.scss`,
   `!${paths.srcPathSCSS}/_vendor/**/*.scss`,
   `!${paths.srcPathSCSS}/base/_mixins.scss`,
+  `!${paths.srcPathSCSS}/base/_forms.scss`,
 ]
 
 gulp.task('sass-lint', () => {

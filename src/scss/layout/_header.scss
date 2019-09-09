@@ -22,7 +22,7 @@
 
   &_logo-wrap {
     @include media('<tablet') {
-      padding: 7px 9999px 2px;
+      padding: 4px 9999px;
       margin: 0 -9999px;
       background: $white;
     }

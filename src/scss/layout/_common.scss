@@ -46,6 +46,7 @@ body {
 
     @include media('<desktop') {
       flex-direction: column;
+      justify-content: flex-start;
     }
   }
 
@@ -76,6 +77,9 @@ body {
 
     @include media('<desktop') {
       margin: 0;
+    }
+    @include media("<tablet") {
+    	justify-content: center;
     }
   }
 }
@@ -283,16 +287,12 @@ body {
       position: absolute;
       top: 50%;
       left: 50%;
-      font-size: 12px;
+      font-size: 14px;
       transform: translate(-50%, -50%);
     }
 
-    .icon-facebook {
-      font-size: 14px;
-    }
-
-    .icon-twitter {
-      font-size: 14px;
+    .icon-rss {
+      font-size: 12px;
     }
   }
 }
